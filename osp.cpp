@@ -49,12 +49,21 @@ bool check(int a,int temp[nr]){
 		work[j]=allo[t][j]+work[j];	
 		printf("\n %d",avail[t]);
 	}
-//	for(j=0;j<nr;j++){
-//	        printf("\n %d",work[i]);
-//			}
+	for(j=0;j<nr;j++){
+	        printf("\n %d",avail[i]);
+			}
 }
+//void initavail(){
+//	for(j=0;j<nr;j++){
+//		int gett;
+//		scanf("%d",&gett);
+//		avail[j]=gett;	
+//		
+//	}
+//}
 int main(){
-	  // Step 1
+	  work[np]=avail[np];// Step 1
+	//initavail();
 	for(i=0;i<nr;i++){
 		work[i] = avail[i];
 	}
