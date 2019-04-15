@@ -21,17 +21,14 @@ static int  mx[np][nr] = {{0,0,1,2},
 
 static int need[np][nr];
 
-void calneed(int all[np][nr],int mm[np][nr]){
+void calneed(int all[np][nr],int mm[np][nr]){   //function to calculate need
 	for(i = 0; i<np; i++){
 		for(j = 0; j<nr; j++){
 			need[i][j]=mm[i][j]-all[i][j];
 		}
 	}
-//		for(j=0;j<nr;j++){
-//	        printf("\n %d",avail[i]);
-//			}
 }
-bool check(int a,int temp[nr]){
+bool check(int a,int temp[nr]){ //function to check weather need<work
 	int count;
 	for(int k=0;k<nr;k++){
 		
@@ -47,7 +44,7 @@ bool check(int a,int temp[nr]){
 			return false;
 		}
 }
-	void add(int t){
+	void add(int t){       //function to add alocation to work
 	
 	for(j=0;j<nr;j++){
 		work[j]=allo[t][j]+work[j];	
@@ -56,6 +53,7 @@ bool check(int a,int temp[nr]){
 	for(j=0;j<nr;j++){
 	        printf("\n %d",work[j]);
 			}
+		
 	}
 	
 
@@ -64,10 +62,6 @@ int main(){
 	for(i=0;i<nr;i++){
 		work[i] = avail[i];
 	}
-	for(j=0;j<nr;j++){
-	        printf("\n %d",work[j]);
-	        
-			}
 	for(i=0;i<np;i++){
 		finish[i] = false;
 	}              //     step 1 finished
@@ -84,9 +78,9 @@ int main(){
 			if(ch==true){
 				finish[i]=true;
 				add(i);
-			
+			}	
 		}
 	}	
 
 }	
-}
+
