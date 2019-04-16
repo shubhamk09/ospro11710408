@@ -5,7 +5,9 @@ const int nr = 4;
 static bool finish[np];
 int i;
 int j;
+int ss[5];
 int count=0;
+int count2=0;
 static int avail[nr] = {1,5,2,0};
 static int work[nr];
 static int  allo[np][nr] = {{0,0,1,2},
@@ -49,16 +51,13 @@ bool check(int a,int temp[nr]){ //function to check weather need<work
 	for(j=0;j<nr;j++){
 		work[j]=allo[t][j]+work[j];	
 		
+	}			
 	}
-	for(j=0;j<nr;j++){
-	        printf("\n %d",work[j]);
-			}
 		
-	}
 	
 
 int main(){
-	 								// Step 1
+	 bool found=false;						// Step 1
 	for(i=0;i<nr;i++){
 		work[i] = avail[i];
 	}
@@ -66,21 +65,29 @@ int main(){
 		finish[i] = false;
 	}              //     step 1 finished
 	calneed(allo,mx);
-	for(i=0;i<np;i++){
-		printf("\n");
-		for(j=0;j<nr;j++){
-			printf("%d",need[i][j]);
-		}
-	}
+	
+	while(count2<np) 
+	{
+		
 	for(i = 0; i<np; i++){
 		if(finish[i]==false){
 			bool ch = check(i,work);
 			if(ch==true){
 				finish[i]=true;
 				add(i);
-			}	
+				ss[count2++]=i;					
+			}
+			cout<<"";	
 		}
-	}	
+	}
+		
+	}
+	
+	for(j=0;j<nr;j++){
+	        cout<<work[j]<<"\n";
+			}
+	for (i = 0; i < np ; i++) 
+		cout << ss[i] << " ";	
 
 }	
 
