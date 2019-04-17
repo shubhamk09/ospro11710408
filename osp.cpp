@@ -57,37 +57,51 @@ bool check(int a,int temp[nr]){ //function to check weather need<work
 	
 
 int main(){
-	 bool found=false;						// Step 1
+	 //int count3=0;
+	 int temp;						// Step 1
 	for(i=0;i<nr;i++){
 		work[i] = avail[i];
 	}
 	for(i=0;i<np;i++){
 		finish[i] = false;
-	}              //     step 1 finished
+	}                             //     step 1 finished
 	calneed(allo,mx);
 	
-	while(count2<np) 
+	while(count2<np)             //loop will run until all the process are completed
 	{
-		
-	for(i = 0; i<np; i++){
-		if(finish[i]==false){
-			bool ch = check(i,work);
-			if(ch==true){
-				finish[i]=true;
-				add(i);
-				ss[count2++]=i;					
+		temp=count2;	
+		for(i = 0; i<np; i++)
+		{
+			if(finish[i]==false)		// checking the value of false for each process
+			{
+				bool ch = check(i,work);
+				if(ch==true)				// cheking need<work
+				{
+					finish[i]=true;
+					add(i);
+					ss[count2++]=i;        // putting the process in sef sequence
+										
+				}
+				if(count2==temp){
+					goto isnot;            //if the value of temp is same as count2 then the loop will end
+					
+				}
+				cout<<"";	
 			}
-			cout<<"";	
 		}
-	}
 		
 	}
-	
-	for(j=0;j<nr;j++){
-	        cout<<work[j]<<"\n";
-			}
-	for (i = 0; i < np ; i++) 
-		cout << ss[i] << " ";	
+	goto istrue;
+	isnot:
+		cout<<"System is not in Safe state \n";
+		goto end;
+	istrue:
+		cout<<"Safe Sequence is \n";
+		for (i = 0; i < np ; i++) 
+			cout << ss[i] << " ";
+		cout<<"\n System is in safe State \n";
+	end:
+	cout<<"Thank you";	
 
 }	
 
