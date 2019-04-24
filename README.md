@@ -1,4 +1,5 @@
 # ospro11710408
+# please open README.md file to see the Question. 
 Ques. 22. Consider following and Generate a solution to find whether the system is in safe state or not? 
  
 Available Processes Allocation Max
